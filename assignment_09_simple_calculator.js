@@ -74,4 +74,89 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+// =============================================================================
+// PROGRAMMING FUNDAMENTALS — Assignment 9
+// =============================================================================
 
+const readline = require('readline-sync');
+
+// Arithmetic functions
+function add(a, b) {
+    return (a + b).toFixed(2);
+}
+
+function sub(a, b) {
+    return (a - b).toFixed(2);
+}
+
+function mult(a, b) {
+    return (a * b).toFixed(2);
+}
+
+function div(a, b) {
+    if (b === 0) {
+        console.log("Error: Cannot divide by zero.");
+        return null;
+    }
+    return (a / b).toFixed(2);
+}
+
+function mod(a, b) {
+    if (b === 0) {
+        console.log("Error: Cannot divide by zero.");
+        return null;
+    }
+    return (a % b).toFixed(2);
+}
+
+function exp(a, b) {
+    return Math.pow(a, b).toFixed(2);
+}
+
+// --- Main Program Loop ---
+while (true) {
+    console.log("\n============================");
+    console.log("     SIMPLE CALCULATOR");
+    console.log("============================");
+    console.log("1. Addition");
+    console.log("2. Subtraction");
+    console.log("3. Multiplication");
+    console.log("4. Division");
+    console.log("5. Modulus");
+    console.log("6. Exponentiation");
+    console.log("7. Quit");
+
+    let choice = readline.question("Select an operation (1-7): ");
+
+    if (choice === "7") {
+        console.log("Goodbye!");
+        break;
+    }
+
+    if (["1", "2", "3", "4", "5", "6"].includes(choice)) {
+        let a = parseFloat(readline.question("Enter first number : "));
+        let b = parseFloat(readline.question("Enter second number: "));
+
+        if (choice === "1") {
+            console.log("Result: " + a + " + " + b + " = " + add(a, b));
+        } else if (choice === "2") {
+            console.log("Result: " + a + " - " + b + " = " + sub(a, b));
+        } else if (choice === "3") {
+            console.log("Result: " + a + " * " + b + " = " + mult(a, b));
+        } else if (choice === "4") {
+            let res = div(a, b);
+            if (res !== null) {
+                console.log("Result: " + a + " / " + b + " = " + res);
+            }
+        } else if (choice === "5") {
+            let res = mod(a, b);
+            if (res !== null) {
+                console.log("Result: " + a + " % " + b + " = " + res);
+            }
+        } else if (choice === "6") {
+            console.log("Result: " + a + " ** " + b + " = " + exp(a, b));
+        }
+    } else {
+        console.log("Invalid choice, try again.");
+    }
+}
