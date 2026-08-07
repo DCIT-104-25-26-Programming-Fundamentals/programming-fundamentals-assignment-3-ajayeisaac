@@ -81,4 +81,76 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+// =============================================================================
+// PROGRAMMING FUNDAMENTALS — Assignment 7
+// =============================================================================
 
+const readline = require('readline-sync');
+
+// Global array to store tasks
+let tasks = [];
+
+// 1. Add Task
+function addTask() {
+    let task = readline.question("Enter task: ");
+    tasks.push(task);
+    console.log('Task added: "' + task + '"');
+}
+
+// 2. View Tasks
+function viewTasks() {
+    if (tasks.length === 0) {
+        console.log("You have no tasks yet.");
+    } else {
+        console.log("Your Tasks:");
+        for (let i = 0; i < tasks.length; i++) {
+            console.log((i + 1) + ". " + tasks[i]);
+        }
+    }
+}
+
+// 3. Delete Task
+function deleteTask() {
+    if (tasks.length === 0) {
+        console.log("You have no tasks yet.");
+    } else {
+        viewTasks();
+        let num = parseInt(readline.question("Enter task number to delete: "));
+
+        if (isNaN(num) || num < 1 || num > tasks.length) {
+            console.log("Error, invalid task number");
+        } else {
+            // splice removes item by index (subtract 1 because 0-based index)
+            let removed = tasks.splice(num - 1, 1);
+            console.log('Task "' + removed + '" has been removed.');
+        }
+    }
+}
+
+// Main Program Loop
+let running = true;
+
+while (running) {
+    console.log("\n============================");
+    console.log("     TO-DO LIST MENU");
+    console.log("============================");
+    console.log("1. Add task");
+    console.log("2. View tasks");
+    console.log("3. Delete task");
+    console.log("4. Quit");
+
+    let choice = readline.question("Enter your choice (1-4): ");
+
+    if (choice === "1") {
+        addTask();
+    } else if (choice === "2") {
+        viewTasks();
+    } else if (choice === "3") {
+        deleteTask();
+    } else if (choice === "4") {
+        console.log("Goodbye!");
+        running = false;
+    } else {
+        console.log("Error, invalid choice");
+    }
+}
