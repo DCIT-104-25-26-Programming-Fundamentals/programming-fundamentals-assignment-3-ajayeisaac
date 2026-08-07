@@ -55,3 +55,62 @@
 // =============================================================================
 
 
+// =============================================================================
+// PROGRAMMING FUNDAMENTALS — Assignment 5
+// =============================================================================
+
+const readline = require('readline-sync');
+
+// PART A — Print the First N Terms
+function printFibonacciTerms(n) {
+    if (n <= 0) {
+        console.log("Error: Number of terms must be a positive integer.");
+        return;
+    }
+
+    let a = 0;
+    let b = 1;
+    let resultStr = "Fibonacci sequence: ";
+
+    for (let i = 0; i < n; i++) {
+        resultStr += a + " ";
+        let nextVal = a + b;
+        a = b;
+        b = nextVal;
+    }
+
+    console.log(resultStr);
+}
+
+// PART B — Check if a Number Belongs to the Sequence
+function checkIsFibonacci(target) {
+    if (target < 0) {
+        console.log(target + " is NOT a Fibonacci number.");
+        return;
+    }
+
+    let a = 0;
+    let b = 1;
+
+    // loop until we reach or pass target
+    while (a < target) {
+        let nextVal = a + b;
+        a = b;
+        b = nextVal;
+    }
+
+    if (a === target) {
+        console.log(target + " is a Fibonacci number.");
+    } else {
+        console.log(target + " is NOT a Fibonacci number.");
+    }
+}
+
+// --- Main Program Execution ---
+console.log("--- PART A ---");
+let terms = parseInt(readline.question("How many terms? "));
+printFibonacciTerms(terms);
+
+console.log("\n--- PART B ---");
+let checkNum = parseInt(readline.question("Enter a number to check: "));
+checkIsFibonacci(checkNum);
