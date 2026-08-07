@@ -65,7 +65,7 @@
 
 const readline = require('readline-sync');
 
-// PART A — Single Table
+//  Single Table
 function singleTable(num) {
     console.log("Multiplication Table for " + num + ":");
     for (let i = 1; i <= 12; i++) {
@@ -74,7 +74,7 @@ function singleTable(num) {
     }
 }
 
-// PART B — Tables from 1 to N
+//  Tables from 1 to N
 function tablesUpToN(n) {
     for (let i = 1; i <= n; i++) {
         singleTable(i);
@@ -82,7 +82,7 @@ function tablesUpToN(n) {
     }
 }
 
-// --- Main Execution ---
+// This is the function
 let choice = parseInt(readline.question("Enter a number: "));
 
 if (isNaN(choice) || choice <= 0) {
