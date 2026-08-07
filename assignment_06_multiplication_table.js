@@ -59,4 +59,43 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+// =============================================================================
+// PROGRAMMING FUNDAMENTALS — Assignment 6
+// =============================================================================
 
+const readline = require('readline-sync');
+
+// PART A — Single Table
+function singleTable(num) {
+    console.log("Multiplication Table for " + num + ":");
+    for (let i = 1; i <= 12; i++) {
+        let res = num * i;
+        console.log(num + "  x  " + i + "  =  " + res);
+    }
+}
+
+// PART B — Tables from 1 to N
+function tablesUpToN(n) {
+    for (let i = 1; i <= n; i++) {
+        singleTable(i);
+        console.log("---------------------------");
+    }
+}
+
+// --- Main Execution ---
+let choice = parseInt(readline.question("Enter a number: "));
+
+if (isNaN(choice) || choice <= 0) {
+    console.log("Error, must be positive number");
+} else {
+    singleTable(choice);
+
+    console.log("");
+    let n = parseInt(readline.question("Enter N for bonus tables 1 to N: "));
+
+    if (isNaN(n) || n <= 0) {
+        console.log("Error, must be positive number");
+    } else {
+        tablesUpToN(n);
+    }
+}

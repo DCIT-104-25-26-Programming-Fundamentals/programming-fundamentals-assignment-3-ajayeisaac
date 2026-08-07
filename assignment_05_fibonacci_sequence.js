@@ -61,7 +61,7 @@
 
 const readline = require('readline-sync');
 
-// PART A — Print the First N Terms
+//  Printing the First N Terms
 function printFibonacciTerms(n) {
     if (n <= 0) {
         console.log("Error: Number of terms must be a positive integer.");
@@ -82,7 +82,7 @@ function printFibonacciTerms(n) {
     console.log(resultStr);
 }
 
-// PART B — Check if a Number Belongs to the Sequence
+// Checking if a Number Belongs to the Sequence
 function checkIsFibonacci(target) {
     if (target < 0) {
         console.log(target + " is NOT a Fibonacci number.");
@@ -106,7 +106,7 @@ function checkIsFibonacci(target) {
     }
 }
 
-// --- Main Program Execution ---
+//  Main Program Execution
 console.log("--- PART A ---");
 let terms = parseInt(readline.question("How many terms? "));
 printFibonacciTerms(terms);
